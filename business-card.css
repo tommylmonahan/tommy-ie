@@ -1,0 +1,287 @@
+:root {
+  --ink: #26272b;
+  --charcoal: #34363a;
+  --paper: #faf9f6;
+  --white: #ffffff;
+  --pink: #df537a;
+  --pink-soft: #f8e1e8;
+  --yellow: #f3cb43;
+  --yellow-soft: #fff2bd;
+  --line: #d9d9d5;
+  --muted: #65666a;
+  --font: "Manrope", "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color: var(--ink);
+  background: #ebeae6;
+  font-family: var(--font);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 52px 24px 70px;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+.preview-header {
+  width: min(760px, 100%);
+  margin: 0 auto 38px;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.preview-header h1 {
+  margin: 3px 0 8px;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1;
+  letter-spacing: -.05em;
+}
+
+.preview-header p {
+  max-width: 560px;
+  margin: 0;
+  color: var(--muted);
+  font-size: .86rem;
+  line-height: 1.6;
+}
+
+.preview-header .preview-kicker {
+  color: var(--ink);
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.preview-header button {
+  flex: 0 0 auto;
+  padding: 11px 18px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  color: var(--white);
+  background: var(--charcoal);
+  cursor: pointer;
+  font-size: .78rem;
+  font-weight: 700;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.preview-header button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 rgba(38, 39, 43, .13);
+}
+
+.preview-header button:focus-visible,
+.business-card a:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 3px;
+}
+
+.card-stack {
+  display: grid;
+  justify-items: center;
+  gap: 32px;
+}
+
+.business-card {
+  position: relative;
+  width: min(89mm, calc(100vw - 32px));
+  aspect-ratio: 89 / 59;
+  overflow: hidden;
+  border-radius: 4mm;
+  box-shadow: 0 20px 55px rgba(38, 39, 43, .16);
+}
+
+.card-profile {
+  --card-ink: var(--ink);
+  --card-muted: var(--muted);
+  --card-line: var(--line);
+  --card-accent: var(--pink);
+  padding: 7.2mm 8mm 5.5mm;
+  color: var(--card-ink);
+  border: .25mm solid var(--card-line);
+}
+
+.card-light {
+  background:
+    radial-gradient(circle at 89% 108%, var(--yellow-soft) 0 25%, transparent 25.4%),
+    var(--paper);
+}
+
+.card-dark {
+  --card-ink: var(--paper);
+  --card-muted: #c8c7c2;
+  --card-line: rgba(250, 249, 246, .26);
+  --card-accent: var(--yellow);
+  background:
+    radial-gradient(circle at 89% 108%, rgba(223, 83, 122, .78) 0 25%, transparent 25.4%),
+    var(--charcoal);
+}
+
+.card-accent {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 2.2mm;
+  background: var(--card-accent);
+}
+
+.card-header {
+  padding-bottom: 2.6mm;
+  border-bottom: .25mm solid var(--card-line);
+}
+
+.card-name,
+.card-field,
+.card-role {
+  margin: 0;
+}
+
+.card-name {
+  font-size: 5.7mm;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -.045em;
+}
+
+.card-field {
+  margin-top: 1.05mm;
+  color: var(--card-muted);
+  font-size: 2.45mm;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.card-field span {
+  padding: 0 .55mm;
+  color: var(--card-accent);
+}
+
+.card-role {
+  margin-top: .7mm;
+  color: var(--card-accent);
+  font-size: 2.25mm;
+  font-weight: 800;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.contact-list {
+  margin-top: 2mm;
+  display: grid;
+  gap: .9mm;
+  font-style: normal;
+}
+
+.contact-list a {
+  width: fit-content;
+  display: grid;
+  grid-template-columns: 15mm auto;
+  align-items: baseline;
+  gap: 2.5mm;
+  color: inherit;
+  font-size: 2.5mm;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.contact-list span {
+  color: var(--card-accent);
+  font-size: 2.05mm;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.contact-list strong {
+  font-weight: 650;
+}
+
+.contact-list a:hover strong {
+  text-decoration: underline;
+  text-decoration-color: var(--card-accent);
+  text-underline-offset: .8mm;
+}
+
+.card-footer {
+  position: absolute;
+  right: 8mm;
+  bottom: 4.7mm;
+  left: 8mm;
+  margin: 0;
+  color: var(--card-muted);
+  font-size: 2.05mm;
+  font-weight: 700;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 620px) {
+  body {
+    padding: 32px 16px 48px;
+  }
+
+  .preview-header {
+    align-items: start;
+    flex-direction: column;
+    margin-bottom: 28px;
+  }
+
+  .business-card {
+    border-radius: 14px;
+  }
+}
+
+@page {
+  size: 89mm 59mm;
+  margin: 0;
+}
+
+@media print {
+  html,
+  body {
+    width: 89mm;
+    min-height: 59mm;
+    margin: 0;
+    padding: 0;
+    background: var(--white);
+  }
+
+  .preview-header {
+    display: none;
+  }
+
+  .card-stack {
+    display: block;
+  }
+
+  .business-card {
+    width: 89mm;
+    height: 59mm;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    break-after: page;
+    page-break-after: always;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .business-card:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+}
